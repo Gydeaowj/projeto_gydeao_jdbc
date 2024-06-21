@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Conexao {
-    private String url = "jdbc:mysql://localhost:3306/loja";
+    private String url = "jdbc:mysql://localhost:3306/caixa";
     private String user = "root";
     private String password = "";
 

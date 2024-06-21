@@ -1,7 +1,6 @@
 package com.castelo;
 
-
-import com.castelo.dao.PessoaDAO;
+import com.castelo.dao.PessoaDao;
 import com.castelo.dao.PessoaPojo;
 import com.castelo.modelo.Pessoa;
 
@@ -23,9 +22,8 @@ public class App
         pessoaPojo.setCpf("000.111.222-33");
         pessoaPojo.setIdade(15);
 
-        PessoaDAO pessoaDAO = new PessoaDAO();
-        pessoaDAO.cadastrarPessoa(pessoaPojo);
-
+        PessoaDao pessoaDao= new PessoaDao();        
+        pess
 
     }
 }

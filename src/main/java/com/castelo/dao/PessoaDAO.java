@@ -5,9 +5,10 @@ import java.sql.SQLException;
 
 import com.castelo.conexao.Conexao;
 
-public class PessoaDAO {
+public class PessoaDao {
 
-      public void cadastrarPessoa(PessoaPojo pessoaPojo) {
+
+     public void cadastrarPessoa(PessoaPojo pessoaPojo) {
 
         Conexao conexao = new Conexao();
 
@@ -24,15 +25,47 @@ public class PessoaDAO {
             ps.setString(3, pessoaPojo.getCpf());
             ps.setInt(4, pessoaPojo.getIdade());
           
+
             ps.execute();
             ps.close();
 
-            System.out.println("Pessoa cadastrada!");
+            System.out.println("Produto salvo com exito!");
 
          } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println( "Pessoa não cadastrada!");
+            System.out.println( "Não foi possivel fornecer aprovação, revise o produto!");
         }
     } 
 
+/* 
+    public void deletarPessoa(ProdutoPojo pessoaPojo) {
+
+        Conexao conexao = new Conexao();
+
+        String sql = "DELETE FROM pessoa WHERE id = (?)";
+
+        PreparedStatement ps = null;
+
+
+        try {
+
+            ps = conexao.getConexao().prepareStatement(sql);
+
+            ps.setInt(1, pessoaPojo.getId());
+            
+           
+
+            ps.execute();
+            ps.close();
+
+            System.out.println("Dados deletados com sucesso!");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+           
+        
+    }  
+*/
 }
