@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.castelo.conexao.Conexao;
 
-public class PessoaDao {
+public class PessoaDAO {
 
 
      public void cadastrarPessoa(PessoaPojo pessoaPojo) {
