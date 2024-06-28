@@ -41,5 +41,11 @@ public class PessoaPojo {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    @Override
+    public String toString() {
+        return "PessoaPojo [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", idade=" + idade + "]";
+    }
+
     
 }

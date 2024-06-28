@@ -1,13 +1,14 @@
 package com.castelo.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.castelo.conexao.Conexao;
 
 public class PessoaDAO {
 
-
+    
      public void cadastrarPessoa(PessoaPojo pessoaPojo) {
 
         Conexao conexao = new Conexao();
@@ -36,25 +37,20 @@ public class PessoaDAO {
             System.out.println( "Não foi possivel fornecer aprovação, revise o produto!");
         }
     } 
-
-/* 
-    public void deletarPessoa(ProdutoPojo pessoaPojo) {
+    
+    
+    
+    public void deletarPessoa(PessoaPojo pessoaPojo) {
 
         Conexao conexao = new Conexao();
 
-        String sql = "DELETE FROM pessoa WHERE id = (?)";
+        String sql = "DELETE FROM pessoa WHERE id = ?";
 
         PreparedStatement ps = null;
 
-
         try {
-
             ps = conexao.getConexao().prepareStatement(sql);
-
             ps.setInt(1, pessoaPojo.getId());
-            
-           
-
             ps.execute();
             ps.close();
 
@@ -62,10 +58,38 @@ public class PessoaDAO {
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }        
+    }
+    
 
+    public void consultarPessoa(PessoaPojo pessoaPojo) {
+
+        Conexao conexao = new Conexao();
+
+        String sql = "SELECT * FROM Pessoa WHERE nome = ?";
+
+        PreparedStatement ps = null;
+
+        ResultSet rs = null;
+
+        try {
+            ps = conexao.getConexao().prepareStatement(sql);
            
-        
-    }  
-*/
+            rs = ps.executeQuery();            
+                   
+            while(rs.next()) {
+          
+            pessoaPojo.setNome( rs.getString(2));
+            pessoaPojo.setCpf( rs.getString(3));
+            pessoaPojo.setIdade(  rs.getInt(4));      
+         }
+         
+         ps.close();
+         System.out.println(pessoaPojo.toString());
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }        
+    }
 }

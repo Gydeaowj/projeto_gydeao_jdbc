@@ -13,23 +13,41 @@ public class App
         /*
         Conexao conexao = new Conexao();
         conexao.getConexao();
-        */
+         */
 
-        
         Pessoa pessoa =new Pessoa();
 
-        pessoa.setNome("Júlia");
-        pessoa.setCpf("000.111.222-33");
-        pessoa.setIdade(15);
+        //inserir pessoa 
+        /*
+        pessoa.setNome("Caio");
+        pessoa.setCpf("666.333.777-77");
+        pessoa.setIdade(45);
 
         PessoaPojo pessoaPojo =new PessoaPojo();
-        pessoaPojo.setNome("Júlia");
-        pessoaPojo.setCpf("000.111.222-33");
-        pessoaPojo.setIdade(15);
+        pessoaPojo.setNome("Caio");
+        pessoaPojo.setCpf("666.333.777-77");
+        pessoaPojo.setIdade(45);
+        pessoaPojo.setId(1);
 
         PessoaDAO pessoaDAO = new PessoaDAO();        
-        pessoaDAO.cadastrarPessoa(pessoaPojo);
-        
+        pessoaDAO.deletarPessoa(pessoaPojo);
+        */ 
+
+        //deletar pessoa
+        /*
+        PessoaPojo pessoaPojo =new PessoaPojo();
+        pessoaPojo.setId(1);
+
+        PessoaDAO pessoaDAO = new PessoaDAO();        
+        pessoaDAO.deletarPessoa(pessoaPojo);
+        */
+
+        //consultar pessoa
+
+        PessoaPojo pessoaPojo =new PessoaPojo();
+
+        PessoaDAO pessoaDAO = new PessoaDAO();        
+        pessoaDAO.consultarPessoa(pessoaPojo);
 
     }
 }
