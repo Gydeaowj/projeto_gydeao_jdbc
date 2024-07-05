@@ -45,9 +45,11 @@ public class App
         //consultar pessoa
 
         PessoaPojo pessoaPojo =new PessoaPojo();
+        pessoaPojo.setId(2);
 
         PessoaDAO pessoaDAO = new PessoaDAO();        
         pessoaDAO.consultarPessoa(pessoaPojo);
+
 
     }
 }

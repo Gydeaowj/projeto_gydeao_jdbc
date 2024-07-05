@@ -66,7 +66,7 @@ public class PessoaDAO {
 
         Conexao conexao = new Conexao();
 
-        String sql = "SELECT * FROM Pessoa WHERE nome = ?";
+        String sql = "SELECT * FROM Pessoa WHERE id = ?";
 
         PreparedStatement ps = null;
 
@@ -74,17 +74,20 @@ public class PessoaDAO {
 
         try {
             ps = conexao.getConexao().prepareStatement(sql);
+
+            ps.setInt(1, pessoaPojo.getId());
            
             rs = ps.executeQuery();            
                    
             while(rs.next()) {
-          
+
             pessoaPojo.setNome( rs.getString(2));
             pessoaPojo.setCpf( rs.getString(3));
             pessoaPojo.setIdade(  rs.getInt(4));      
          }
          
          ps.close();
+
          System.out.println(pessoaPojo.toString());
 
         } catch (SQLException e) {
